@@ -11,12 +11,12 @@ namespace BooksReaded.Repository
             throw new NotImplementedException();
         }
 
-        public void Get(Book book)
+        public Book GetById(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public List<Book> GetList(Book book)
+        public List<Book> GetList()
         {
             throw new NotImplementedException();
         }

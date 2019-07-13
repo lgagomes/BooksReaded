@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.GridViewBooks = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CbAuthor = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtTitle = new System.Windows.Forms.TextBox();
-            this.TxtPublishYear = new System.Windows.Forms.TextBox();
             this.BtnNewBook = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.TxtPublishYear = new System.Windows.Forms.TextBox();
+            this.TxtTitle = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.CbAuthor = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BtnCreateAuthor = new System.Windows.Forms.Button();
+            this.TxtAuthorName = new System.Windows.Forms.TextBox();
+            this.GridViewBooks = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBooks)).BeginInit();
@@ -62,51 +62,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Insert a New Book";
             // 
-            // groupBox2
+            // BtnNewBook
             // 
-            this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.button2);
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Location = new System.Drawing.Point(301, 9);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 180);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Create a new Author";
+            this.BtnNewBook.Location = new System.Drawing.Point(91, 140);
+            this.BtnNewBook.Name = "BtnNewBook";
+            this.BtnNewBook.Size = new System.Drawing.Size(130, 23);
+            this.BtnNewBook.TabIndex = 4;
+            this.BtnNewBook.Text = "Insert a new Book";
+            this.BtnNewBook.UseVisualStyleBackColor = true;
             // 
-            // GridViewBooks
+            // TxtPublishYear
             // 
-            this.GridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewBooks.Location = new System.Drawing.Point(5, 205);
-            this.GridViewBooks.Name = "GridViewBooks";
-            this.GridViewBooks.Size = new System.Drawing.Size(595, 193);
-            this.GridViewBooks.TabIndex = 2;
+            this.TxtPublishYear.Location = new System.Drawing.Point(135, 102);
+            this.TxtPublishYear.Name = "TxtPublishYear";
+            this.TxtPublishYear.Size = new System.Drawing.Size(100, 20);
+            this.TxtPublishYear.TabIndex = 3;
             // 
-            // label1
+            // TxtTitle
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 38);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Author";
-            // 
-            // CbAuthor
-            // 
-            this.CbAuthor.FormattingEnabled = true;
-            this.CbAuthor.Location = new System.Drawing.Point(90, 35);
-            this.CbAuthor.Name = "CbAuthor";
-            this.CbAuthor.Size = new System.Drawing.Size(145, 21);
-            this.CbAuthor.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(17, 73);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Title";
+            this.TxtTitle.Location = new System.Drawing.Point(90, 70);
+            this.TxtTitle.Name = "TxtTitle";
+            this.TxtTitle.Size = new System.Drawing.Size(145, 20);
+            this.TxtTitle.TabIndex = 3;
             // 
             // label3
             // 
@@ -117,37 +94,44 @@
             this.label3.TabIndex = 2;
             this.label3.Text = "Year of Publication";
             // 
-            // TxtTitle
+            // label2
             // 
-            this.TxtTitle.Location = new System.Drawing.Point(90, 70);
-            this.TxtTitle.Name = "TxtTitle";
-            this.TxtTitle.Size = new System.Drawing.Size(145, 20);
-            this.TxtTitle.TabIndex = 3;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(17, 73);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(27, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Title";
             // 
-            // TxtPublishYear
+            // CbAuthor
             // 
-            this.TxtPublishYear.Location = new System.Drawing.Point(135, 102);
-            this.TxtPublishYear.Name = "TxtPublishYear";
-            this.TxtPublishYear.Size = new System.Drawing.Size(100, 20);
-            this.TxtPublishYear.TabIndex = 3;
+            this.CbAuthor.DisplayMember = "IdAuthor";
+            this.CbAuthor.FormattingEnabled = true;
+            this.CbAuthor.Location = new System.Drawing.Point(90, 35);
+            this.CbAuthor.Name = "CbAuthor";
+            this.CbAuthor.Size = new System.Drawing.Size(145, 21);
+            this.CbAuthor.TabIndex = 1;
             // 
-            // BtnNewBook
+            // label1
             // 
-            this.BtnNewBook.Location = new System.Drawing.Point(91, 140);
-            this.BtnNewBook.Name = "BtnNewBook";
-            this.BtnNewBook.Size = new System.Drawing.Size(130, 23);
-            this.BtnNewBook.TabIndex = 4;
-            this.BtnNewBook.Text = "Insert a new Book";
-            this.BtnNewBook.UseVisualStyleBackColor = true;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(17, 38);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Author";
             // 
-            // button2
+            // groupBox2
             // 
-            this.button2.Location = new System.Drawing.Point(65, 140);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(129, 23);
-            this.button2.TabIndex = 0;
-            this.button2.Text = "Insert a new Author";
-            this.button2.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.BtnCreateAuthor);
+            this.groupBox2.Controls.Add(this.TxtAuthorName);
+            this.groupBox2.Location = new System.Drawing.Point(301, 9);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(299, 180);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Create a new Author";
             // 
             // label4
             // 
@@ -158,12 +142,30 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Author\'s Name";
             // 
-            // textBox1
+            // BtnCreateAuthor
             // 
-            this.textBox1.Location = new System.Drawing.Point(21, 70);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(145, 20);
-            this.textBox1.TabIndex = 3;
+            this.BtnCreateAuthor.Location = new System.Drawing.Point(65, 140);
+            this.BtnCreateAuthor.Name = "BtnCreateAuthor";
+            this.BtnCreateAuthor.Size = new System.Drawing.Size(129, 23);
+            this.BtnCreateAuthor.TabIndex = 0;
+            this.BtnCreateAuthor.Text = "Create a new Author";
+            this.BtnCreateAuthor.UseVisualStyleBackColor = true;
+            this.BtnCreateAuthor.Click += new System.EventHandler(this.BtnCreateAuthor_Click);
+            // 
+            // TxtAuthorName
+            // 
+            this.TxtAuthorName.Location = new System.Drawing.Point(21, 70);
+            this.TxtAuthorName.Name = "TxtAuthorName";
+            this.TxtAuthorName.Size = new System.Drawing.Size(145, 20);
+            this.TxtAuthorName.TabIndex = 3;
+            // 
+            // GridViewBooks
+            // 
+            this.GridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewBooks.Location = new System.Drawing.Point(5, 205);
+            this.GridViewBooks.Name = "GridViewBooks";
+            this.GridViewBooks.Size = new System.Drawing.Size(595, 193);
+            this.GridViewBooks.TabIndex = 2;
             // 
             // UcMainScreen
             // 
@@ -194,9 +196,9 @@
         private System.Windows.Forms.ComboBox CbAuthor;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnCreateAuthor;
         private System.Windows.Forms.DataGridView GridViewBooks;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtAuthorName;
     }
 }

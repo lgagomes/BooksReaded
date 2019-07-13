@@ -4,8 +4,8 @@ namespace BooksReaded.Repository
 {
     public interface IBaseRepository<TEntity> where TEntity : class
     {
-        void Get(TEntity entity);
-        List<TEntity> GetList(TEntity entity);
+        TEntity GetById(int Id);
+        List<TEntity> GetList();
         void Save(TEntity entity);
         void Edit(TEntity entity);
     }

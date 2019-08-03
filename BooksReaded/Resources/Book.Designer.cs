@@ -79,13 +79,15 @@ namespace BooksReaded.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT 
-        ///	IdBook,
-        ///	IdAuthor,
-        ///	Title,
-        ///	YearPublication
+        ///	Book.IdBook,
+        ///	Book.IdAuthor,
+        ///	Book.Title,
+        ///	Book.YearPublication,
+        ///	Author.Name
         ///
         ///FROM 
         ///	Book
+        ///	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor
         ///
         ///WHERE 
         ///	Book.IdBook = @IdBook.
@@ -98,13 +100,15 @@ namespace BooksReaded.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT 
-        ///	IdBook,
-        ///	IdAuthor,
-        ///	Title,
-        ///	YearPublication
+        ///	Book.IdBook,
+        ///	Book.IdAuthor,
+        ///	Book.Title,
+        ///	Book.YearPublication,
+        ///	Author.Name
         ///
         ///FROM 
-        ///	Book.
+        ///	Book
+        ///	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor.
         /// </summary>
         internal static string GetList {
             get {
@@ -114,7 +118,7 @@ namespace BooksReaded.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to INSERT INTO Book (IdAuthor, Title, YearPublication)
-        ///VALUES (@IdAuthor, @Title @YearPublication).
+        ///VALUES (@IdAuthor, @Title, @YearPublication).
         /// </summary>
         internal static string Insert {
             get {

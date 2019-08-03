@@ -16,22 +16,22 @@ namespace BooksReaded.Services
 
         public void EditBook(Book book)
         {
-            throw new NotImplementedException();
+            _bookRepository.Edit(book);
         }
 
         public Book GetBookById(int id)
         {
-            throw new NotImplementedException();
+            return _bookRepository.GetById(id);
         }
 
         public List<Book> GetBooksList()
         {
-            throw new NotImplementedException();
+            return _bookRepository.GetList();
         }
 
         public void SaveBook(Book book)
         {
-            throw new NotImplementedException();
+            _bookRepository.Save(book);
         }
     }
 }

@@ -130,29 +130,33 @@ WHERE
   </data>
   <data name="GetById" xml:space="preserve">
     <value>SELECT 
-	IdBook,
-	IdAuthor,
-	Title,
-	YearPublication
+	Book.IdBook,
+	Book.IdAuthor,
+	Book.Title,
+	Book.YearPublication,
+	Author.Name
 
 FROM 
 	Book
+	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor
 
 WHERE 
 	Book.IdBook = @IdBook</value>
   </data>
   <data name="GetList" xml:space="preserve">
     <value>SELECT 
-	IdBook,
-	IdAuthor,
-	Title,
-	YearPublication
+	Book.IdBook,
+	Book.IdAuthor,
+	Book.Title,
+	Book.YearPublication,
+	Author.Name
 
 FROM 
-	Book</value>
+	Book
+	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor</value>
   </data>
   <data name="Insert" xml:space="preserve">
     <value>INSERT INTO Book (IdAuthor, Title, YearPublication)
-VALUES (@IdAuthor, @Title @YearPublication)</value>
+VALUES (@IdAuthor, @Title, @YearPublication)</value>
   </data>
 </root>

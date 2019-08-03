@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.BtnNewBook = new System.Windows.Forms.Button();
             this.TxtPublishYear = new System.Windows.Forms.TextBox();
@@ -41,9 +42,19 @@
             this.BtnCreateAuthor = new System.Windows.Forms.Button();
             this.TxtAuthorName = new System.Windows.Forms.TextBox();
             this.GridViewBooks = new System.Windows.Forms.DataGridView();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnEditAuthor = new System.Windows.Forms.Button();
+            this.CbAuthorsList = new System.Windows.Forms.ComboBox();
+            this.bookBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.idBookDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.YearPublication = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.authorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBooks)).BeginInit();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -70,6 +81,7 @@
             this.BtnNewBook.TabIndex = 4;
             this.BtnNewBook.Text = "Insert a new Book";
             this.BtnNewBook.UseVisualStyleBackColor = true;
+            this.BtnNewBook.Click += new System.EventHandler(this.BtnNewBook_Click);
             // 
             // TxtPublishYear
             // 
@@ -105,7 +117,6 @@
             // 
             // CbAuthor
             // 
-            this.CbAuthor.DisplayMember = "IdAuthor";
             this.CbAuthor.FormattingEnabled = true;
             this.CbAuthor.Location = new System.Drawing.Point(90, 35);
             this.CbAuthor.Name = "CbAuthor";
@@ -128,7 +139,7 @@
             this.groupBox2.Controls.Add(this.TxtAuthorName);
             this.groupBox2.Location = new System.Drawing.Point(301, 9);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(299, 180);
+            this.groupBox2.Size = new System.Drawing.Size(299, 90);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Create a new Author";
@@ -136,7 +147,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 38);
+            this.label4.Location = new System.Drawing.Point(18, 28);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 1;
@@ -144,7 +155,7 @@
             // 
             // BtnCreateAuthor
             // 
-            this.BtnCreateAuthor.Location = new System.Drawing.Point(65, 140);
+            this.BtnCreateAuthor.Location = new System.Drawing.Point(69, 54);
             this.BtnCreateAuthor.Name = "BtnCreateAuthor";
             this.BtnCreateAuthor.Size = new System.Drawing.Size(129, 23);
             this.BtnCreateAuthor.TabIndex = 0;
@@ -154,23 +165,90 @@
             // 
             // TxtAuthorName
             // 
-            this.TxtAuthorName.Location = new System.Drawing.Point(21, 70);
+            this.TxtAuthorName.Location = new System.Drawing.Point(123, 25);
             this.TxtAuthorName.Name = "TxtAuthorName";
             this.TxtAuthorName.Size = new System.Drawing.Size(145, 20);
             this.TxtAuthorName.TabIndex = 3;
             // 
             // GridViewBooks
             // 
+            this.GridViewBooks.AutoGenerateColumns = false;
             this.GridViewBooks.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.GridViewBooks.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idBookDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.YearPublication,
+            this.authorDataGridViewTextBoxColumn});
+            this.GridViewBooks.DataSource = this.bookBindingSource;
             this.GridViewBooks.Location = new System.Drawing.Point(5, 205);
             this.GridViewBooks.Name = "GridViewBooks";
             this.GridViewBooks.Size = new System.Drawing.Size(595, 193);
             this.GridViewBooks.TabIndex = 2;
             // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.BtnEditAuthor);
+            this.groupBox3.Controls.Add(this.CbAuthorsList);
+            this.groupBox3.Location = new System.Drawing.Point(301, 105);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(299, 84);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Edit Author";
+            // 
+            // BtnEditAuthor
+            // 
+            this.BtnEditAuthor.Location = new System.Drawing.Point(172, 28);
+            this.BtnEditAuthor.Name = "BtnEditAuthor";
+            this.BtnEditAuthor.Size = new System.Drawing.Size(96, 23);
+            this.BtnEditAuthor.TabIndex = 1;
+            this.BtnEditAuthor.Text = "Edit Author";
+            this.BtnEditAuthor.UseVisualStyleBackColor = true;
+            this.BtnEditAuthor.Click += new System.EventHandler(this.BtnEditAuthor_Click);
+            // 
+            // CbAuthorsList
+            // 
+            this.CbAuthorsList.FormattingEnabled = true;
+            this.CbAuthorsList.Location = new System.Drawing.Point(6, 30);
+            this.CbAuthorsList.Name = "CbAuthorsList";
+            this.CbAuthorsList.Size = new System.Drawing.Size(138, 21);
+            this.CbAuthorsList.TabIndex = 0;
+            // 
+            // bookBindingSource
+            // 
+            this.bookBindingSource.DataSource = typeof(BooksReaded.Models.Book);
+            // 
+            // idBookDataGridViewTextBoxColumn
+            // 
+            this.idBookDataGridViewTextBoxColumn.DataPropertyName = "IdBook";
+            this.idBookDataGridViewTextBoxColumn.HeaderText = "IdBook";
+            this.idBookDataGridViewTextBoxColumn.Name = "idBookDataGridViewTextBoxColumn";
+            this.idBookDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // YearPublication
+            // 
+            this.YearPublication.DataPropertyName = "YearPublication";
+            this.YearPublication.HeaderText = "YearPublication";
+            this.YearPublication.Name = "YearPublication";
+            // 
+            // authorDataGridViewTextBoxColumn
+            // 
+            this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
+            this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
+            this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            // 
             // UcMainScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.GridViewBooks);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -181,6 +259,8 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewBooks)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bookBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -200,5 +280,13 @@
         private System.Windows.Forms.DataGridView GridViewBooks;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtAuthorName;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button BtnEditAuthor;
+        private System.Windows.Forms.ComboBox CbAuthorsList;
+        private System.Windows.Forms.BindingSource bookBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idBookDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn YearPublication;
+        private System.Windows.Forms.DataGridViewTextBoxColumn authorDataGridViewTextBoxColumn;
     }
 }

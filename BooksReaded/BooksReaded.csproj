@@ -52,6 +52,12 @@
     <Compile Include="Forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmEditAuthor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmEditAuthor.Designer.cs">
+      <DependentUpon>FrmEditAuthor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Program.cs" />
@@ -82,6 +88,9 @@
     <EmbeddedResource Include="Forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmEditAuthor.resx">
+      <DependentUpon>FrmEditAuthor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -102,6 +111,7 @@
     <EmbeddedResource Include="UserControls\UcMainScreen.resx">
       <DependentUpon>UcMainScreen.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\DataSources\BooksReaded.Models.Book.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -117,20 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Edit" xml:space="preserve">
-    <value>UPDATE Author
-SET Name = @Name
-WHERE Author.IdAuthor = @IdAuthor</value>
-  </data>
-  <data name="GetAuthorBase" xml:space="preserve">
-    <value>SELECT 
-	IdAuthor,
-	Name
-
-FROM 
-	Author</value>
-  </data>
-  <data name="Insert" xml:space="preserve">
-    <value>INSERT INTO Author (Name) VALUES (@Name)</value>
-  </data>
 </root>

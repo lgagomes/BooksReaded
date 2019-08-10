@@ -1,13 +1,6 @@
 ﻿using BooksReaded.Models;
 using BooksReaded.Services;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BooksReaded.Forms
@@ -32,7 +25,7 @@ namespace BooksReaded.Forms
         {
             if (string.IsNullOrWhiteSpace(TxtAuthorEditName.Text))
             {
-                MessageBox.Show("Please inform a Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please inform a Name", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
@@ -45,8 +38,13 @@ namespace BooksReaded.Forms
                 AuthorService _authorService = new AuthorService();
                 _authorService.EditAuthor(selectedAuthor);
                 MessageBox.Show("Author edited sucessfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Close();
+                DialogResult = DialogResult.OK;
             }
+        }
+
+        private void BtnCancelAuthorEdit_Click(object sender, EventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
         }
     }
 }

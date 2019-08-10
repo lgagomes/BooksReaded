@@ -4,7 +4,9 @@ using System;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using BooksReaded.Forms;
-//using BooksReaded.Forms;
+using System.Linq;
+
+//TODO: Add edit button to the grid
 
 namespace BooksReaded.UserControls
 {
@@ -70,9 +72,15 @@ namespace BooksReaded.UserControls
         {
             var selectedAuthor = (Author)CbAuthorsList.SelectedItem;
 
-            FrmEditAuthor frmEditAuthor = new FrmEditAuthor(selectedAuthor);
-            frmEditAuthor.ShowDialog();
-            UpdateAuthorList();
+            using (FrmEditAuthor frmEditAuthor = new FrmEditAuthor(selectedAuthor))
+            {
+                frmEditAuthor.ShowDialog();
+
+                if(frmEditAuthor.DialogResult == DialogResult.OK)
+                {
+                    UpdateAuthorList();
+                }
+            }            
         }
 
         private bool ValidateAuthorNameToInsertion()
@@ -87,20 +95,23 @@ namespace BooksReaded.UserControls
 
         private void BtnNewBook_Click(object sender, EventArgs e)
         {
-            if (ValidateBookData())
-            {
-                var selectedAuthor = (Author)CbAuthor.SelectedItem;
+            var selectedAuthor = (Author)CbAuthor.SelectedItem;
 
-                _bookService.SaveBook(
-                    new Book
-                    {
-                        Title = TxtTitle.Text,
-                        YearPublication = TxtPublishYear.Text,
-                        Author = new Author
-                        {
-                            IdAuthor = selectedAuthor.IdAuthor,
-                        }
-                    });
+            Book bookToSave = new Book
+            {
+                Title = TxtTitle.Text,
+                YearPublication = TxtPublishYear.Text,
+                Author = new Author
+                {
+                    IdAuthor = selectedAuthor.IdAuthor,
+                }
+            };
+
+            bookToSave.ValidatePropertiesInfo();
+
+            if (!bookToSave.Erros.Any())
+            {
+                _bookService.SaveBook(bookToSave);
 
                 MessageBox.Show("Book created sucessfully", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -109,29 +120,28 @@ namespace BooksReaded.UserControls
 
                 GetBooksList();
             }
+            else
+            {
+                string errosMessage = string.Join(Environment.NewLine, bookToSave.Erros);
+
+                MessageBox.Show($"The following erros occured:{Environment.NewLine}{errosMessage}", "Warning", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
-        private bool ValidateBookData()
+        private void GridViewBooks_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(TxtTitle.Text))
-            {
-                MessageBox.Show("Please inform a Title", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+            Book book = (Book)GridViewBooks.CurrentRow.DataBoundItem;
 
-            if (TxtTitle.Text.Length > 255)
+            using (FrmEditBook frmEditBook = new FrmEditBook(book))
             {
-                MessageBox.Show("Title must have less than 255 characters", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
+                frmEditBook.ShowDialog();
 
-            if (TxtPublishYear.Text.Length > 4)
-            {
-                MessageBox.Show("Please inform a valid Year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-
-            return true;
+                if (frmEditBook.DialogResult == DialogResult.OK)
+                {
+                    GetBooksList();
+                }
+            }           
         }
     }
 }

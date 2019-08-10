@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text;
 
 namespace BooksReaded.Repository
 {
@@ -50,14 +51,15 @@ namespace BooksReaded.Repository
                     connection.Open();
                     if (connection.State == ConnectionState.Open)
                     {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Author.GetById, connection);
+                        StringBuilder query = new StringBuilder(Resources.Author.GetAuthorBase).Append(" WHERE Author.IdAuthor = @IdAuthor");
+
+                        SqlCommand sqlCommand = new SqlCommand(query.ToString(), connection);
                         sqlCommand.Parameters.AddWithValue("@IdAuthor", Id);
                         SqlDataReader reader = sqlCommand.ExecuteReader();
 
                         if (reader.Read())
                         {
-                            author.IdAuthor = (int)reader["IdAuthor"];
-                            author.Name = (string)reader["Name"];
+                            author = FillAuthorByReader(reader);
                         }
                         else
                         {
@@ -84,19 +86,12 @@ namespace BooksReaded.Repository
                     connection.Open();
                     if (connection.State == ConnectionState.Open)
                     {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Author.GetList, connection);
+                        SqlCommand sqlCommand = new SqlCommand(Resources.Author.GetAuthorBase, connection);
                         using (SqlDataReader reader = sqlCommand.ExecuteReader())
                         {
                             while (reader.Read())
                             {
-                                authors.Add
-                                (
-                                    new Author
-                                    {
-                                        IdAuthor = (int)reader["IdAuthor"],
-                                        Name = (string)reader["Name"]
-                                    }
-                                );
+                                authors.Add(FillAuthorByReader(reader));
                             }
                         }
                     }
@@ -108,6 +103,15 @@ namespace BooksReaded.Repository
                     ex.InnerException);
             }
             return authors;
+        }
+
+        private Author FillAuthorByReader(SqlDataReader dataReader)
+        {
+            return new Author
+            {
+                IdAuthor = (int)dataReader["IdAuthor"],
+                Name = (string)dataReader["Name"]
+            };
         }
 
         public void Save(Author author)

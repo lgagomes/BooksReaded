@@ -66,7 +66,7 @@ namespace BooksReaded.Resources {
         ///SET 
         ///	IdAuthor = @IdAuthor,
         ///	Title = @Title,
-        ///	YearPublication @YearPublication
+        ///	YearPublication = @YearPublication
         ///
         ///WHERE 
         ///	Book.IdBook = @IdBook.
@@ -87,32 +87,11 @@ namespace BooksReaded.Resources {
         ///
         ///FROM 
         ///	Book
-        ///	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor
-        ///
-        ///WHERE 
-        ///	Book.IdBook = @IdBook.
-        /// </summary>
-        internal static string GetById {
-            get {
-                return ResourceManager.GetString("GetById", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT 
-        ///	Book.IdBook,
-        ///	Book.IdAuthor,
-        ///	Book.Title,
-        ///	Book.YearPublication,
-        ///	Author.Name
-        ///
-        ///FROM 
-        ///	Book
         ///	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor.
         /// </summary>
-        internal static string GetList {
+        internal static string GetBookBase {
             get {
-                return ResourceManager.GetString("GetList", resourceCulture);
+                return ResourceManager.GetString("GetBookBase", resourceCulture);
             }
         }
         

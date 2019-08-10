@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\Form1.cs">
+    <Compile Include="Forms\FrmEditBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Forms\FrmEditBook.Designer.cs">
+      <DependentUpon>FrmEditBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FrmMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMainScreen.Designer.cs">
+      <DependentUpon>FrmMainScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FrmEditAuthor.cs">
       <SubType>Form</SubType>
@@ -85,8 +91,11 @@
     <Compile Include="UserControls\UcMainScreen.Designer.cs">
       <DependentUpon>UcMainScreen.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FrmEditBook.resx">
+      <DependentUpon>FrmEditBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMainScreen.resx">
+      <DependentUpon>FrmMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditAuthor.resx">
       <DependentUpon>FrmEditAuthor.cs</DependentUpon>

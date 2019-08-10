@@ -123,27 +123,12 @@
 SET 
 	IdAuthor = @IdAuthor,
 	Title = @Title,
-	YearPublication @YearPublication
+	YearPublication = @YearPublication
 
 WHERE 
 	Book.IdBook = @IdBook</value>
   </data>
-  <data name="GetById" xml:space="preserve">
-    <value>SELECT 
-	Book.IdBook,
-	Book.IdAuthor,
-	Book.Title,
-	Book.YearPublication,
-	Author.Name
-
-FROM 
-	Book
-	INNER JOIN Author on Book.IdAuthor = Author.IdAuthor
-
-WHERE 
-	Book.IdBook = @IdBook</value>
-  </data>
-  <data name="GetList" xml:space="preserve">
+  <data name="GetBookBase" xml:space="preserve">
     <value>SELECT 
 	Book.IdBook,
 	Book.IdAuthor,

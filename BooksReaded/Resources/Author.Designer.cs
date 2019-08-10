@@ -77,28 +77,11 @@ namespace BooksReaded.Resources {
         ///	Name
         ///
         ///FROM 
-        ///	Author
-        ///
-        ///WHERE
-        ///	Author.IdAuthor = @IdAuthor.
-        /// </summary>
-        internal static string GetById {
-            get {
-                return ResourceManager.GetString("GetById", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to SELECT 
-        ///	IdAuthor,
-        ///	Name
-        ///
-        ///FROM 
         ///	Author.
         /// </summary>
-        internal static string GetList {
+        internal static string GetAuthorBase {
             get {
-                return ResourceManager.GetString("GetList", resourceCulture);
+                return ResourceManager.GetString("GetAuthorBase", resourceCulture);
             }
         }
         

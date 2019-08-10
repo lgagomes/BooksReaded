@@ -184,6 +184,7 @@
             this.GridViewBooks.Name = "GridViewBooks";
             this.GridViewBooks.Size = new System.Drawing.Size(595, 193);
             this.GridViewBooks.TabIndex = 2;
+            this.GridViewBooks.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.GridViewBooks_CellContentDoubleClick);
             // 
             // groupBox3
             // 
@@ -235,14 +236,16 @@
             // YearPublication
             // 
             this.YearPublication.DataPropertyName = "YearPublication";
-            this.YearPublication.HeaderText = "YearPublication";
+            this.YearPublication.HeaderText = "Year of Publication";
             this.YearPublication.Name = "YearPublication";
+            this.YearPublication.Width = 120;
             // 
             // authorDataGridViewTextBoxColumn
             // 
             this.authorDataGridViewTextBoxColumn.DataPropertyName = "Author";
             this.authorDataGridViewTextBoxColumn.HeaderText = "Author";
             this.authorDataGridViewTextBoxColumn.Name = "authorDataGridViewTextBoxColumn";
+            this.authorDataGridViewTextBoxColumn.Width = 120;
             // 
             // UcMainScreen
             // 

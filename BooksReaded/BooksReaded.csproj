@@ -52,18 +52,19 @@
     <Compile Include="Forms\FrmEditBook.Designer.cs">
       <DependentUpon>FrmEditBook.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FrmMainScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FrmMainScreen.Designer.cs">
-      <DependentUpon>FrmMainScreen.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FrmEditAuthor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FrmEditAuthor.Designer.cs">
       <DependentUpon>FrmEditAuthor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FrmMainScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FrmMainScreen.Designer.cs">
+      <DependentUpon>FrmMainScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Mediator\Mediator.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Program.cs" />
@@ -85,20 +86,38 @@
     <Compile Include="Services\BookService.cs" />
     <Compile Include="Services\IAuthorInterface.cs" />
     <Compile Include="Services\IBookServiceInterface.cs" />
-    <Compile Include="UserControls\UcMainScreen.cs">
+    <Compile Include="UserControls\UcBooksList.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControls\UcMainScreen.Designer.cs">
-      <DependentUpon>UcMainScreen.cs</DependentUpon>
+    <Compile Include="UserControls\UcBooksList.Designer.cs">
+      <DependentUpon>UcBooksList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcCreateAuthor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcCreateAuthor.Designer.cs">
+      <DependentUpon>UcCreateAuthor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcCreateBook.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcCreateBook.Designer.cs">
+      <DependentUpon>UcCreateBook.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UcEditAuthor.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UcEditAuthor.Designer.cs">
+      <DependentUpon>UcEditAuthor.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Forms\FrmEditBook.resx">
       <DependentUpon>FrmEditBook.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FrmMainScreen.resx">
-      <DependentUpon>FrmMainScreen.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FrmEditAuthor.resx">
       <DependentUpon>FrmEditAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FrmMainScreen.resx">
+      <DependentUpon>FrmMainScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -117,8 +136,17 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Book.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\UcMainScreen.resx">
-      <DependentUpon>UcMainScreen.cs</DependentUpon>
+    <EmbeddedResource Include="UserControls\UcBooksList.resx">
+      <DependentUpon>UcBooksList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcCreateAuthor.resx">
+      <DependentUpon>UcCreateAuthor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcCreateBook.resx">
+      <DependentUpon>UcCreateBook.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UcEditAuthor.resx">
+      <DependentUpon>UcEditAuthor.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\DataSources\BooksReaded.Models.Book.datasource" />
     <None Include="Properties\Settings.settings">

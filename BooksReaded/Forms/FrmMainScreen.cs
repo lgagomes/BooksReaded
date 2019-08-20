@@ -1,12 +1,16 @@
 ﻿using System.Windows.Forms;
+using FormMediator = BooksReaded.Mediator.Mediator;
 
-namespace BooksReaded
+namespace BooksReaded.Forms
 {
-    public partial class Form1 : Form
+    public partial class FrmMainScreen : Form
     {
-        public Form1()
+        private FormMediator mediator;
+
+        public FrmMainScreen()
         {
             InitializeComponent();
+            mediator = new FormMediator(ucEditAuthor1, ucCreateAuthor1, ucCreateBook1, ucBooksList1);
         }
     }
 }

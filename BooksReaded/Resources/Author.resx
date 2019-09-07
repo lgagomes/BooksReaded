@@ -123,12 +123,9 @@ SET Name = @Name
 WHERE Author.IdAuthor = @IdAuthor</value>
   </data>
   <data name="GetAuthorBase" xml:space="preserve">
-    <value>SELECT 
-	IdAuthor,
-	Name
-
-FROM 
-	Author</value>
+    <value>SELECT IdAuthor,Name
+FROM Author
+ORDER BY Name</value>
   </data>
   <data name="Insert" xml:space="preserve">
     <value>INSERT INTO Author (Name) VALUES (@Name)</value>

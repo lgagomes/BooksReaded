@@ -74,5 +74,10 @@ namespace BooksReaded.UserControls
                     MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
+        private void TxtPublishYear_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

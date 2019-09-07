@@ -71,6 +71,7 @@
             this.TxtPublishYear.Name = "TxtPublishYear";
             this.TxtPublishYear.Size = new System.Drawing.Size(100, 20);
             this.TxtPublishYear.TabIndex = 3;
+            this.TxtPublishYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPublishYear_KeyPress);
             // 
             // TxtTitle
             // 

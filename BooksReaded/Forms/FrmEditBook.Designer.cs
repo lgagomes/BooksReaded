@@ -89,6 +89,7 @@
             this.TxtYearToEdit.Size = new System.Drawing.Size(100, 20);
             this.TxtYearToEdit.TabIndex = 6;
             this.TxtYearToEdit.TextChanged += new System.EventHandler(this.TxtYearToEdit_TextChanged);
+            this.TxtYearToEdit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtYearToEdit_KeyPress);
             // 
             // BtnSaveBookChanges
             // 

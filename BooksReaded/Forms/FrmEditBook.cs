@@ -1,6 +1,7 @@
 ﻿using BooksReaded.Models;
 using BooksReaded.Services;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -9,6 +10,7 @@ namespace BooksReaded.Forms
     public partial class FrmEditBook : Form
     {
         private Book _actualBook;
+        private bool _initialized = false;
 
         public FrmEditBook(Book book)
         {
@@ -16,14 +18,21 @@ namespace BooksReaded.Forms
             InitializeComponent();
             InitializeAuthorCombobox();
             InitializeTxtTitle();
-            InitalizeTxtYear();
+            InitalizeTxtYear();                        
         }        
 
         private void InitializeAuthorCombobox()
         {
+            CbAuthorToEdit.DisplayMember = "Name";
+            CbAuthorToEdit.ValueMember = "IdAuthor";
+
             AuthorService authorService = new AuthorService();
-            CbAuthorToEdit.DataSource = authorService.GetAuthorsList();
-            CbAuthorToEdit.SelectedItem = _actualBook.Author;
+            List<Author> authors = authorService.GetAuthorsList();
+
+            CbAuthorToEdit.DataSource = authors;
+            CbAuthorToEdit.SelectedIndex = authors.FindIndex(x => x.IdAuthor == _actualBook.Author.IdAuthor);
+
+            _initialized = true;
         }
 
         private void InitializeTxtTitle()
@@ -38,10 +47,13 @@ namespace BooksReaded.Forms
 
         private void CbAuthorToEdit_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var author = (Author)CbAuthorToEdit.SelectedItem;
+            if (_initialized)
+            {
+                var author = (Author)CbAuthorToEdit.SelectedItem;
 
-            _actualBook.Author.IdAuthor = author.IdAuthor;
-            _actualBook.Author.Name = author.Name;
+                _actualBook.Author.IdAuthor = author.IdAuthor;
+                _actualBook.Author.Name = author.Name;
+            }
         }
 
         private void TxtTitleToEdit_TextChanged(object sender, EventArgs e)
@@ -75,6 +87,11 @@ namespace BooksReaded.Forms
         private void BtnCancelBookChanges_Click(object sender, EventArgs e)
         {
             DialogResult = DialogResult.Cancel;
-        }               
+        }
+
+        private void TxtYearToEdit_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
     }
 }

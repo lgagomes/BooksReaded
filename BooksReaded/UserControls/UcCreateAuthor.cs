@@ -38,7 +38,7 @@ namespace BooksReaded.UserControls
         {
             if (string.IsNullOrWhiteSpace(TxtAuthorName.Text))
             {
-                MessageBox.Show("Please inform a Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please inform a Name", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;

@@ -2,6 +2,7 @@
 {
     public class Author
     {
+        public int Id { get => IdAuthor; set => IdAuthor = value; }
         public int IdAuthor { get; set; }
         public string Name { get; set; }
 

@@ -79,11 +79,11 @@ namespace BooksReaded.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT 
-        ///	Book.IdBook,
-        ///	Book.IdAuthor,
+        ///	Book.IdBook AS Id,
+        ///	Book.IdAuthor AS Author_Id,
         ///	Book.Title,
         ///	Book.YearPublication,
-        ///	Author.Name
+        ///	Author.Name AS Author_Name
         ///
         ///FROM 
         ///	Book

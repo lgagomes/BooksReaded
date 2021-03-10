@@ -7,6 +7,7 @@ namespace BooksReaded.Models
         private const int BOOK_TITLE_MAX_LENGHT = 255;
         private const int YEAR_MAX_LENGHT = 4;
 
+        public int Id { get => IdBook; set => IdBook = value; }
         public int IdBook { get; set; }
         public string Title { get; set; }
         public string YearPublication { get; set; }

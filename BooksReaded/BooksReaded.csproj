@@ -33,8 +33,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Slapper, Version=2.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Slapper.AutoMapper.2.0.1\lib\net46\Slapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +81,8 @@
     <Compile Include="Repository\AuthorRepository.cs" />
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\IBaseRepository.cs" />
+    <Compile Include="Repository\MapperAbstraction\IMapperAbstraction.cs" />
+    <Compile Include="Repository\MapperAbstraction\MapperAbstraction.cs" />
     <Compile Include="Resources\Author.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,6 +159,7 @@
     <EmbeddedResource Include="UserControls\UcEditAuthor.resx">
       <DependentUpon>UcEditAuthor.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\DataSources\BooksReaded.Models.Book.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

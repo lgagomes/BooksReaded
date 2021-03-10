@@ -130,11 +130,11 @@ WHERE
   </data>
   <data name="GetBookBase" xml:space="preserve">
     <value>SELECT 
-	Book.IdBook,
-	Book.IdAuthor,
+	Book.IdBook AS Id,
+	Book.IdAuthor AS Author_Id,
 	Book.Title,
 	Book.YearPublication,
-	Author.Name
+	Author.Name AS Author_Name
 
 FROM 
 	Book

@@ -72,9 +72,8 @@ namespace BooksReaded.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT IdAuthor,Name
-        ///FROM Author
-        ///ORDER BY Name.
+        ///   Looks up a localized string similar to SELECT IdAuthor AS Id,Name
+        ///FROM Author.
         /// </summary>
         internal static string GetAuthorBase {
             get {

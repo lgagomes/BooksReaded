@@ -2,11 +2,11 @@
 
 namespace BooksReaded.Repository
 {
-    public interface IBaseRepository<TEntity> where TEntity : class
+    public interface IBaseRepository<T> where T : class
     {
-        TEntity GetById(int Id);
-        List<TEntity> GetList();
-        void Save(TEntity entity);
-        void Edit(TEntity entity);
+        T GetById(int Id);
+        List<T> GetList();
+        void Save(T entity);
+        void Edit(T entity);
     }
 }

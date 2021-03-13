@@ -127,6 +127,8 @@ WHERE Author.IdAuthor = @IdAuthor</value>
 FROM Author</value>
   </data>
   <data name="Insert" xml:space="preserve">
-    <value>INSERT INTO Author (Name) VALUES (@Name)</value>
+    <value>INSERT INTO Author (Name) 
+VALUES (@Name)
+SELECT SCOPE_IDENTITY()</value>
   </data>
 </root>

@@ -3,7 +3,6 @@ using BooksReaded.Repository.MapperAbstraction;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 
 namespace BooksReaded.Repository
@@ -20,30 +19,17 @@ namespace BooksReaded.Repository
 
         public void Edit(Author author)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
+            var execution =
+                MapperAbstraction.ExecuteScalar<int>(Resources.Author.Edit,
+                new
                 {
-                    connection.Open();
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Author.Edit, connection);
-                        sqlCommand.Parameters.AddWithValue("@IdAuthor", author.IdAuthor);
-                        sqlCommand.Parameters.AddWithValue("@Name", author.Name);
+                    author.IdAuthor,
+                    author.Name
+                });
 
-                        int rowsAfected = sqlCommand.ExecuteNonQuery();
-                        if(rowsAfected != 1)
-                        {
-                            throw new Exception("Coundn't edit the author");
-                        }
-
-                    }
-                }
-            }
-            catch(Exception ex)
+            if (execution != 1)
             {
-                throw new Exception($"Error at AuthorRepository, 'Edit' method {Environment.NewLine}{ex.Message}",
-                   ex.InnerException);
+                throw new Exception("Coundn't edit the author");
             }
         }
 
@@ -64,34 +50,15 @@ namespace BooksReaded.Repository
                 .ToList();
         }
 
-        private Author FillAuthorByReader(SqlDataReader dataReader)
-        {
-            return new Author
-            {
-                IdAuthor = (int)dataReader["IdAuthor"],
-                Name = (string)dataReader["Name"]
-            };
-        }
-
         public void Save(Author author)
         {
-            try
+            author.Id = 
+                MapperAbstraction.ExecuteScalar<int>(Resources.Author.Insert,
+                new { author.Name});
+
+            if (author.Id == 0)
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Author.Insert, connection);
-                        sqlCommand.Parameters.AddWithValue("@Name", author.Name);
-                        sqlCommand.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                throw new Exception($"Error at AuthorRepository, 'Save' method {Environment.NewLine}{ex.Message}",
-                    ex.InnerException);
+                throw new Exception("Could not create author");
             }
         }
     }

@@ -142,6 +142,7 @@ FROM
   </data>
   <data name="Insert" xml:space="preserve">
     <value>INSERT INTO Book (IdAuthor, Title, YearPublication)
-VALUES (@IdAuthor, @Title, @YearPublication)</value>
+VALUES (@IdAuthor, @Title, @YearPublication)
+SELECT SCOPE_IDENTITY()</value>
   </data>
 </root>

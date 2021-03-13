@@ -82,7 +82,9 @@ namespace BooksReaded.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to INSERT INTO Author (Name) VALUES (@Name).
+        ///   Looks up a localized string similar to INSERT INTO Author (Name) 
+        ///VALUES (@Name)
+        ///SELECT SCOPE_IDENTITY().
         /// </summary>
         internal static string Insert {
             get {

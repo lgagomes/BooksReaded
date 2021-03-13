@@ -2,10 +2,7 @@
 using BooksReaded.Repository.MapperAbstraction;
 using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
 
 namespace BooksReaded.Repository
 {
@@ -21,32 +18,20 @@ namespace BooksReaded.Repository
 
         public void Edit(Book book)
         {
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    if (connection.State == ConnectionState.Open)
+            int rowsAfected = 
+                MapperAbstraction.Execute(Resources.Book.Edit,
+                    new
                     {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Book.Edit, connection);
-                        sqlCommand.Parameters.AddWithValue("@IdAuthor", book.Author.IdAuthor);
-                        sqlCommand.Parameters.AddWithValue("@Title", book.Title);
-                        sqlCommand.Parameters.AddWithValue("@YearPublication", book.YearPublication);
-                        sqlCommand.Parameters.AddWithValue("@IdBook", book.IdBook);
+                        book.Author.IdAuthor,
+                        book.Title,
+                        book.YearPublication,
+                        book.IdBook
+                    });
 
-                        int rowsAfected = sqlCommand.ExecuteNonQuery();
-                        if (rowsAfected != 1)
-                        {
-                            throw new Exception("Coundn't edit the book");
-                        }
-                    }
-                }
-            }
-            catch(Exception ex)
+            if (rowsAfected != 1)
             {
-                throw new Exception($"Error at BookRepository, 'Edit' method {Environment.NewLine}{ex.Message}",
-                   ex.InnerException);
-            }
+                throw new Exception("Coundn't edit the book");
+            }           
         }
 
         public Book GetById(int Id)
@@ -65,25 +50,18 @@ namespace BooksReaded.Repository
 
         public void Save(Book book)
         {
-            try
+            book.Id =
+               MapperAbstraction.ExecuteScalar<int>(Resources.Book.Insert,
+               new
+               {
+                   book.Author.IdAuthor,
+                   book.Title,
+                   book.YearPublication
+               });
+
+            if (book.Id == 0)
             {
-                using (SqlConnection connection = new SqlConnection(_connectionString))
-                {
-                    connection.Open();
-                    if (connection.State == ConnectionState.Open)
-                    {
-                        SqlCommand sqlCommand = new SqlCommand(Resources.Book.Insert, connection);
-                        sqlCommand.Parameters.AddWithValue("@IdAuthor", book.Author.IdAuthor);
-                        sqlCommand.Parameters.AddWithValue("@Title", book.Title);
-                        sqlCommand.Parameters.AddWithValue("@YearPublication", book.YearPublication);
-                        sqlCommand.ExecuteNonQuery();
-                    }
-                }
-            }
-            catch(Exception ex)
-            {
-                throw new Exception($"Error at BookRepository, 'Save' method {Environment.NewLine}{ex.Message}",
-                    ex.InnerException);
+                throw new Exception("Could not save the book");
             }
         }
     }
